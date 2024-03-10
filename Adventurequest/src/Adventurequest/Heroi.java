@@ -1,30 +1,91 @@
 package Adventurequest;
 
-public class Heroi extends Personagem{
-    public Coletavel item;
+import java.util.Random;
+public class Heroi extends Personagem {
 
-    public Heroi(String nome, int dano, int vidaMax, Coletavel item){
-        super(nome, dano, vidaMax);
+    private int acumulaDano = 0;
+    private Espada espada = new Espada(5);
+    public Random random = new Random();
+
+    private Pocao pocao = new Pocao();
+
+    private int qtdPocao = 3;
+
+
+    public Heroi(String nome, int vidaMax){
+        super(nome, vidaMax);
     }
-
-    public Coletavel getItem(){
-        return item;
-    }
-
-    public void setItem(Coletavel item) {
-        this.item = item;
-    }
-
     @Override
     public int atacar(){
-        System.out.println("atacando fdp");
-        return 0;
+        int dano = this.espada.usar();
+        this.setAcumulaDano(this.acumulaDano + dano);
+        System.out.println("Herói causa " + dano + "de dano");
+
+        if (this.acumulaDano >= 40){
+            dano = 48;
+            System.out.println("Habilidade especial sendo usada, dano causado é de" +dano);
+            this.setAcumulaDano(0);
+        }
+        return dano;
     }
 
     @Override
-    public int defender(){
-        System.out.println("defendendo fdp");
-        return 0;
+    public boolean defender(){
+        int defesa = random.nextInt(10);
+        if (defesa > 4) {
+            System.out.println("defendendo fdp heroi");
+            return true;
+        } else {
+            System.out.println("defesa falhou heroi");
+            return false;
+        }
     }
 
+    public void curar(){
+        if (qtdPocao > 0){
+            this.setVida(Math.min(this.getVida() + this.pocao.usar(), this.getVidaMax()));
+            System.out.println("Herói curado! Vida atual: " + this.getVida());
+            qtdPocao--;
+        }else{
+            System.out.println("Herói não possui mais poções!!!");
+        }
+    }
+
+    public int getAcumulaDano(){
+        return acumulaDano;
+    }
+
+    public void setAcumulaDano(int acumulaDano){
+        this.acumulaDano = acumulaDano;
+    }
+
+    @Override
+    public String getNome(){
+        return super.getNome();
+    }
+
+    @Override
+    public void setNome(String nome){
+        super.setNome(nome);
+    }
+
+    @Override
+    public int getVida(){
+        return super.getVida();
+    }
+
+    @Override
+    public void setVida(int vida){
+        super.setVida(vida);
+    }
+
+    public Espada getEspada(){
+        return espada;
+    }
+
+    public void setEspada(Espada espada){
+        this.espada = espada;
+    }
 }
+
+
