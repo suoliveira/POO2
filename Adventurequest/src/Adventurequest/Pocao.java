@@ -1,6 +1,8 @@
 package Adventurequest;
 public class Pocao implements Coletavel{
+
     public int cura = 20;
+
     public int getCura(){
         return cura;
     }

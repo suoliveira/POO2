@@ -17,13 +17,13 @@ public class Main{
             if(!heroi.defender() && monstro.getVida() > 0){
                 heroi.setVida(heroi.getVida() - monstro.atacar());
             }
-            System.out.println("A vida do heroi é: " +heroi.getVida()+ " o monstro é: " +monstro.getVida());
+            System.out.println("💕💕 A vida do heroi " +heroi.getNome() + " é:" +heroi.getVida()+ " 💕💕 A vida do monstro " +monstro.getNome()+ " é:" +monstro.getVida());
         }
 
         if(heroi.getVida() <= 0){
-            System.out.println("O herói foi derrotado");
+            System.out.println("😈😈 O herói foi derrotado 😈😈 ");
         }else{
-            System.out.println("O monstro foi derrotado");
+            System.out.println("✨✨ O monstro foi derrotado ✨✨");
         }
     }
 }

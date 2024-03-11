@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Monstro extends Personagem{
     public int danoAtaque;
-
     public Random random = new Random();
+
     public Monstro(String nome, int vidaMax, int danoAtaque){
         super(nome,vidaMax);
         this.danoAtaque = danoAtaque;
@@ -42,7 +42,7 @@ public class Monstro extends Personagem{
     @Override
     public int atacar(){
         int dano = this.getDanoAtaque() + random.nextInt(20);
-        System.out.println("atacando fdp o dano causado é de: " + dano);
+        System.out.println("🐍🐍 Monstro atacando!!! O dano causado é de: " + dano);
         return dano;
     }
 
@@ -50,10 +50,10 @@ public class Monstro extends Personagem{
     public boolean defender(){
         int defesa = random.nextInt(10);
         if (defesa > 8){
-            System.out.println("defendendo fdp monstrengo");
+            System.out.println("🤜🤜 O monstro defendeu");
             return true;
         }else{
-            System.out.println("defesa falhou monstrengo");
+            System.out.println("👎👎 A defesa do monstro falhou");
             return false;
         }
     }

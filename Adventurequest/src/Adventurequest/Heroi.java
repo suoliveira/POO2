@@ -6,24 +6,23 @@ public class Heroi extends Personagem {
     private int acumulaDano = 0;
     private Espada espada = new Espada(5);
     public Random random = new Random();
-
     private Pocao pocao = new Pocao();
-
     private int qtdPocao = 3;
 
 
     public Heroi(String nome, int vidaMax){
         super(nome, vidaMax);
     }
+
     @Override
     public int atacar(){
         int dano = this.espada.usar();
         this.setAcumulaDano(this.acumulaDano + dano);
-        System.out.println("Herói causa " + dano + "de dano");
+        System.out.println("⚔⚔ Herói causa " + dano + " de dano");
 
         if (this.acumulaDano >= 40){
             dano = 48;
-            System.out.println("Habilidade especial sendo usada, dano causado é de" +dano);
+            System.out.println("🐱‍👤🐱‍👤 Habilidade especial sendo usada, o dano causado é de " +dano+ "🐱‍👤🐱‍👤");
             this.setAcumulaDano(0);
         }
         return dano;
@@ -33,10 +32,10 @@ public class Heroi extends Personagem {
     public boolean defender(){
         int defesa = random.nextInt(10);
         if (defesa > 4) {
-            System.out.println("defendendo fdp heroi");
+            System.out.println("💪💪 Heroi defendeu");
             return true;
         } else {
-            System.out.println("defesa falhou heroi");
+            System.out.println("👎👎 Heroi não defendeu");
             return false;
         }
     }
@@ -44,10 +43,10 @@ public class Heroi extends Personagem {
     public void curar(){
         if (qtdPocao > 0){
             this.setVida(Math.min(this.getVida() + this.pocao.usar(), this.getVidaMax()));
-            System.out.println("Herói curado! Vida atual: " + this.getVida());
+            System.out.println("💖💖 Herói curado! Vida atual:" + this.getVida()+ " 💖💖");
             qtdPocao--;
         }else{
-            System.out.println("Herói não possui mais poções!!!");
+            System.out.println("💀💀 Herói não possui mais poções!!! 💀💀");
         }
     }
 
