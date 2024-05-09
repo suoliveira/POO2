@@ -4,11 +4,14 @@ public class Cliente {
     private double valorFinanciamento;
     private boolean  nomeSujo;
 
-    public Cliente(String nome, double rendaMensal, double valorFinanciamento, boolean nomeSujo) {
+    public int parcelas;
+
+    public Cliente(String nome, double rendaMensal, double valorFinanciamento, boolean nomeSujo, int parcelas) {
         this.nome = nome;
         this.rendaMensal = rendaMensal;
         this.valorFinanciamento = valorFinanciamento;
         this.nomeSujo = nomeSujo;
+        this.parcelas = parcelas;
     }
 
     public boolean isNomeSujo(){
@@ -21,5 +24,9 @@ public class Cliente {
 
     public double getValorFinanciamento() {
         return valorFinanciamento;
+    }
+
+    public int getParcelas() {
+        return parcelas;
     }
 }
